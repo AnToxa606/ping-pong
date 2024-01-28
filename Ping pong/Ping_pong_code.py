@@ -1,9 +1,10 @@
 from pygame import *
-
-win_width = 700
-win_height = 500
+img_back="img_back.png"
+win_width = 800
+win_height = 550
 display.set_caption("Ping pong")
 window = display.set_mode((win_width, win_height))
+background = transform.scale(image.load(img_back), (win_width, win_height))
 
 
 
@@ -30,25 +31,19 @@ class Player(GameSprite):
 
 
 FPS=60
-finish=True
+finish=False
 run=True
 while run:
     for e in event.get():
         if e.type == QUIT:
             run = False
         
-
-
-
-
-
-
-
     if not finish:
-        run=False
-        FPS=0
+        window.blit(background, (0, 0))
+        
+        
     
 
 
-
+        display.update()
     time.delay(FPS)
